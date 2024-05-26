@@ -24,26 +24,19 @@
                 Calculator<double> calculator = new Calculator<double>(number1, number2);
                 switch (choice)
                 {
-                    case 1: Console.WriteLine("Result of Adding: " + calculator.AddNumbers(number1, number2)); break;
-                    case 2: Console.WriteLine("Result of Substracting: " + calculator.SubstractNumbers(number1, number2)); break;
-                    case 3: Console.WriteLine("Result of Multiplexing: " + calculator.MultiplyNumbers(number1, number2)); break;
-                    case 4: 
-                        try
+                    case 1: Console.WriteLine($"Result of Adding: {number1} + {number2}  = " + calculator.AddNumbers(number1, number2)); break;
+                    case 2: Console.WriteLine($"Result of Substracting: {number1} - {number2} = " + calculator.SubstractNumbers(number1, number2)); break;
+                    case 3: Console.WriteLine($"Result of Multiplexing: {number1} * {number2} = " + calculator.MultiplyNumbers(number1, number2)); break;
+                    case 4:if(number2 == 0)
                         {
-                            Console.WriteLine("REsult of deviding: " + calculator.DivideNumbers(number1, number2));
-                            
+                            Console.WriteLine("Devided by zero");
                         }
-                        catch (DivideByZeroException e)
-                        {
-                            throw new DivideByZeroException(e.Message);
-                        }
-                        catch (Exception)
-                        {
-                            throw new Exception("ERROR");
-                        }
+                        else
+                            Console.WriteLine($"REsult of deviding: {number1} / {number2}  = " + calculator.DivideNumbers(number1, number2));
                         break;
-                    default:
-                        Console.WriteLine("Enter number from 1 to 5"); break;
+                    default: Console.WriteLine("ERROR");
+                        break;
+                        
                 }
             }
         }
